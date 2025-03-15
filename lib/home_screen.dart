@@ -10,10 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  ApiModel api = ApiModel(id: '5', advice: '52');
+  ApiModel api = ApiModel(id: '', advice: '');
   @override
   void initState() {
-    // TODO: implement initState
     getApidata();
     super.initState();
   }
@@ -30,18 +29,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Colors.orange,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(api.id,
-                style: TextStyle(
+            api.id == ''
+                ? const CircularProgressIndicator(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20)),
+                  )
+                : Text(api.id,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20)),
             Text(api.advice,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20))
