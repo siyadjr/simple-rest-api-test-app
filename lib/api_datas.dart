@@ -11,8 +11,7 @@ class ApiDatas {
     if (snapShot.statusCode == 200) {
       log('succesfull');
       final data = jsonDecode(snapShot.body);
-      final apiModel =
-          ApiModel(id: data['slip']['id'].toString(), advice: data['slip']['advice'].toString());
+      final apiModel = ApiModel(advice: data['slip']['advice']);
       return apiModel;
     } else {
       log('error got he');
